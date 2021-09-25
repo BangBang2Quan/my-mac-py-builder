@@ -11,6 +11,10 @@ jobs:
       with:
         python-version: '3.8' # Version range or exact version of a Python version to use, using SemVer's version range syntax
         architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
-    - run: ls
     - run: pip install pyinstaller
-    - run: pyinstaller --help
+    - run: pyinstaller -F 13.py -w
+    - uses: ncipollo/release-action@v1
+      with:
+        artifacts: "dist/13"
+        body: "i am a wanker"
+        token: ${{ secrets.GITHUB_TOKEN }}
