@@ -13,10 +13,13 @@ jobs:
         architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
     - run: pip install pyinstaller
     - run: pyinstaller -F 13.py -w
+    - uses: papeloto/action-zip@v1
+      with:
+        files: dist/
+        dest: result.zip
     - uses: ncipollo/release-action@v1
       with:
         artifacts: "dist/*"
-        tag: "1.0"
+        tag: "1.1"
         body: "i am a wanker"
         token: ${{ secrets.GITHUB_TOKEN }}
-    - run: find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
