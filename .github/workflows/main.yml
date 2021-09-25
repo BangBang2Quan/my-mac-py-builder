@@ -20,6 +20,6 @@ jobs:
     - uses: ncipollo/release-action@v1
       with:
         artifacts: "result.zip"
-        tag: "1.1"
+        tag: "1.2"
         body: "i am a wanker"
         token: ${{ secrets.GITHUB_TOKEN }}
